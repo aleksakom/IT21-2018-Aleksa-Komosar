@@ -33,7 +33,7 @@ public class Projekat implements Serializable {
 	//bi-directional many-to-one association to Student
 	//Jsonignore da ne dodje do beskanocnog prikazivanja
 	@JsonIgnore
-	@OneToMany(mappedBy="projekat") //onetomany znaci da se jedan projekat moze odnositi na vise studenata
+	@OneToMany(mappedBy="projekat", cascade = {CascadeType.DETACH, CascadeType.REMOVE}) //onetomany znaci da se jedan projekat moze odnositi na vise studenata
 	private List<Student> students; //odnosi se na jedan projekat
 
 	public Projekat() {
